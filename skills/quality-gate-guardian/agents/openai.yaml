@@ -1,0 +1,5 @@
+interface:
+  display_name: Quality Gate Guardian
+  short_description: Reviews implemented work against validated behavior and architecture before release, surfacing drift, blockers, and required upstream corrections.
+  icon: shield-check
+  color: amber

@@ -1,0 +1,5 @@
+interface:
+  display_name: SDD Spec Writer
+  short_description: Writes or revises implementation-ready .feature specifications before code.
+  icon: clipboard-list
+  color: indigo

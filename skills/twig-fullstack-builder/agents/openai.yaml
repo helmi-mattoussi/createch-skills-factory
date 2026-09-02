@@ -1,0 +1,5 @@
+interface:
+  display_name: Twig Fullstack Builder
+  short_description: Generates complete Symfony 7 fullstack implementations (DDD, SOLID, Messenger, Workflow, Turbo, Stimulus, Tailwind v4, Behat) from Module Architecture Documents and validated .feature files.
+  icon: code-bracket
+  color: purple

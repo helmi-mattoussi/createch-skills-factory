@@ -1,0 +1,28 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Dependencies and build output
+node_modules/
+vendor/
+var/
+dist/
+build/
+
+# Local tooling and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local archives and incomplete downloads
+*.zip
+*.7z
+*.tar
+*.gz
+*.crdownload
+
+# Logs and reports that may contain local paths or sensitive context
+*.log
+coverage/

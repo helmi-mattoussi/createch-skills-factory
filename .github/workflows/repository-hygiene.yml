@@ -1,0 +1,28 @@
+name: Repository hygiene
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify the public portfolio structure
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f skills/sdd-spec-writer/SKILL.md
+          test -f skills/quality-gate-guardian/SKILL.md
+          test -f skills/twig-fullstack-builder/SKILL.md
+          test -f docs/case-studies/symfony-twig-controlled-dry-run.md
+      - name: Block accidental publication of local environment files and archives
+        run: |
+          if git ls-files | grep -E '(^|/)\.env$|\.(zip|7z|tar|gz|crdownload)$'; then
+            echo 'Tracked environment file or archive detected.'
+            exit 1
+          fi
