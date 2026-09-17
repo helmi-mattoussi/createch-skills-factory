@@ -1,0 +1,5 @@
+interface:
+  display_name: Module Architecture Advisor
+  short_description: Designs the internal architecture of a module from its definition and validated .feature files, giving builders a grounded starting point.
+  icon: cube
+  color: teal

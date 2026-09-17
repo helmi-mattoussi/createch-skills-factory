@@ -1,0 +1,5 @@
+interface:
+  display_name: Workflow UI/UX Advisor
+  short_description: Designs user workflows, interaction flows, screen structures, and UI states from validated product framing before specification.
+  icon: layout
+  color: violet

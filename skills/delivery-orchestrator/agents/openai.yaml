@@ -1,0 +1,5 @@
+interface:
+  display_name: Delivery Orchestrator
+  short_description: Decides the next governed workflow step from project artifacts and workflow state, updates durable state, and keeps manual fallbacks explicit.
+  icon: route
+  color: blue

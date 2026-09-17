@@ -1,0 +1,5 @@
+interface:
+  display_name: Security Compliance Guardian
+  short_description: Reviews auth, permissions, sensitive data handling, and destructive operations before release, surfacing blocking security and compliance risks.
+  icon: lock
+  color: red

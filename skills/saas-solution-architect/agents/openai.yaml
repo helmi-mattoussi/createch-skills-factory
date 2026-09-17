@@ -1,0 +1,5 @@
+interface:
+  display_name: SaaS Solution Architect
+  short_description: Maps validated product capabilities to a solution architecture with modules, delivery phases, dependencies, and ADR needs.
+  icon: layers
+  color: indigo

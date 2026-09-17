@@ -1,0 +1,5 @@
+interface:
+  display_name: Release Rollout Advisor
+  short_description: Produces governed rollout guidance after review, covering release readiness, rollout pattern, rollback expectations, and watch items.
+  icon: rocket
+  color: red

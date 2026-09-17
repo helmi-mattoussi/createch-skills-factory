@@ -1,0 +1,5 @@
+interface:
+  display_name: Observability Reliability Guardian
+  short_description: Reviews runtime operability, failure visibility, and reliability readiness before release.
+  icon: activity
+  color: orange

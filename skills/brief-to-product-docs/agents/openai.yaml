@@ -1,0 +1,5 @@
+interface:
+  display_name: Brief to Product Docs
+  short_description: Converts vague product input into a structured Product Framing Dossier before specification.
+  icon: file-search
+  color: teal

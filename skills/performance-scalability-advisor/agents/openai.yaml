@@ -1,0 +1,5 @@
+interface:
+  display_name: Performance Scalability Advisor
+  short_description: Reviews latency, throughput, and growth risk before release.
+  icon: gauge
+  color: yellow
