@@ -143,12 +143,12 @@ Use:
 
 Identify the main product capabilities from the framing and specifications.
 
-1. **Check Corporate Starters:** Before inventing new modules, read `references/corporate-starters.md`. If a Starter Kit is used, identify which capabilities are already covered.
+1. Before proposing a module, identify the capabilities and technical foundations already declared in the approved project packet.
 2. For each capability:
    - name it using product vocabulary
    - determine which module it belongs to or whether a new module is needed
    - state the module's primary responsibility in one or two sentences
-   - mark its status: **[Provided by Starter]** or **[To be built]**
+   - mark its status: **[Existing foundation]** or **[To be built]**
    - evaluate its **Reusability Potential**:
      - **[100% Reusable]**: Generic domain (Billing, Auth, Messaging...). Must be architected as an independent, portable package.
      - **[Project-Specific]**: Core business logic unique to this product.

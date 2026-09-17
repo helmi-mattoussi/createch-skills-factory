@@ -216,7 +216,7 @@ This skill must not invent:
 - command-handler structure when direct services are prescribed
 - cross-module packaging or ownership that is not explicit in the project packet
 - conservative assumptions that were never documented upstream
-- project bootstrap or starter strategy
+- project bootstrap strategy
 
 When a gap is found:
 - stop or return a grounded partial output

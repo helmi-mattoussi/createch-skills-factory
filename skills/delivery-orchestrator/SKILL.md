@@ -249,7 +249,7 @@ This skill may decide alone when:
 This skill must require human validation when:
 - a human-owned gate would be crossed
 - workflow state would be advanced despite missing mandatory artifacts
-- a technical strategy such as bootstrap or starter choice is not already declared
+- a technical foundation or bootstrap choice is not already declared
 - two plausible next paths remain and one would widen scope or risk
 
 # Limits
