@@ -22,8 +22,7 @@ Fallback:
 - if none exists, stop and request a human technical decision
 
 Examples:
-- `symfony-minimal-starter`
-- existing corporate starter
+- `approved-symfony-bootstrap`
 - manual framework bootstrap
 
 ## Builder boundary reminder

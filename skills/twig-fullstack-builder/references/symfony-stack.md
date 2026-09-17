@@ -73,20 +73,10 @@
 
 ---
 
-## Installation depuis un Starter Kit ou Zéro
+## Installation Symfony minimale
 
-La méthode recommandée est de cloner le Starter Kit de l'entreprise qui embarque déjà la stack approuvée (Auth, Tailwind, UX).
+Cette référence décrit un bootstrap Symfony générique. Toute décision de fondation technique reste validée dans le projet avant l'implémentation.
 
-**Option A : Via Corporate Starter Kit (RECOMMANDÉ)**
-```bash
-# S'il n'y a pas encore de répertoire de travail
-git clone https://github.com/votre-org/symfony-b2b-starter.git .
-composer install
-npm install
-```
-
-**Option B : Installation pure depuis zéro (FRAMEWORK ONLY)**
-*À n'utiliser que si aucun Starter n'est prescrit.*
 ```bash
 # Créer le projet Symfony 7.4 LTS
 composer create-project symfony/skeleton:"7.4.*" my-project

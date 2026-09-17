@@ -47,7 +47,7 @@ last_updated: YYYY-MM-DD
 ## Field rules
 
 ### `workspace_mode`
-- `greenfield`: no application workspace exists yet or the project starts from a starter
+- `greenfield`: no application workspace exists yet
 - `existing-project`: the application workspace already exists and is being extended
 
 ### `workspace_state`
@@ -70,7 +70,6 @@ If later actions are known, keep them in ordered lists under `build` or `reviews
 
 ```yaml
 bootstrap_strategy: string
-starter_reference: string
 notes:
   - string
 human_owners:
@@ -86,7 +85,7 @@ project: school-dop
 stack: symfony-twig
 workspace_mode: greenfield
 workspace_state: missing
-bootstrap_strategy: symfony-minimal-starter
+bootstrap_strategy: approved-symfony-bootstrap
 current_unit:
   type: slice
   id: directory-foundation
