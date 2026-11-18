@@ -1,73 +1,101 @@
 # Createch Skills Factory
 
-Createch Skills Factory is a public portfolio of a **human-supervised agentic delivery framework** for disciplined software delivery, with a focus on Symfony projects.
+**A supervised agentic delivery pipeline for Symfony projects.**
 
-It contains reusable AI skills for product framing, specification, architecture, implementation planning, quality review, operational review, and release readiness. Every skill has a bounded responsibility, defined inputs and outputs, escalation rules, and explicit human decision gates.
+I do not let an AI agent write the application. I give it bounded skills, explicit handoff
+contracts, and human approval gates — so that generated code stays traceable three months later.
 
-## Purpose of this repository
+---
 
-This repository is intended for technical review of the skill system. It demonstrates how AI assistance can be introduced into a delivery workflow without delegating product, architecture, security, or release responsibility to an autonomous agent.
+## The problem
 
-It is not a claim of autonomous agents deployed in production.
+AI-assisted delivery is fast on day one and unmaintainable on day thirty.
 
-## Full skill catalog
+Generated code is plausible. It compiles, it looks like the rest of the codebase, and nobody
+remembers who decided what, or why this table exists. The speed gained at the start is paid back
+in reviews that catch fewer defects than before, because there is no contract to review against.
 
-The repository contains all 12 skills currently designed for the framework.
+This repository is my answer to that: not "use AI less", but **give it boundaries it cannot cross**.
 
-| Delivery stage | Skills | Maturity |
-| --- | --- | --- |
-| Product framing | `brief-to-product-docs`, `workflow-ui-ux-advisor`, `sdd-spec-writer` | Supervised |
-| Architecture | `saas-solution-architect`, `module-architecture-advisor` | Supervised |
-| Implementation | `twig-fullstack-builder`, `delivery-orchestrator` | Experimental |
-| Quality and risk review | `quality-gate-guardian`, `security-compliance-guardian`, `observability-reliability-guardian`, `performance-scalability-advisor` | Supervised |
-| Release readiness | `release-rollout-advisor` | Supervised |
+---
 
-See [SKILLS-CATALOG.md](SKILLS-CATALOG.md) for each skill's role, evidence, and current maturity.
+## The approach
 
-## Delivery flow
+Twelve bounded skills cover the delivery cycle, from framing to release:
 
-```text
-Brief
--> Product framing
--> Human product gate
--> Specification
--> Architecture
--> Supervised implementation
--> Quality and risk review
--> Release recommendation
--> Human release gate
-```
+Each skill declares:
 
-The governing principle is simple: agents may assist with artifacts; humans retain responsibility for product, architecture, security, and release decisions.
+- **what it receives and what it produces** — no open-ended conversation;
+- **an explicit handoff contract** — the next skill knows what it starts from;
+- **an escalation rule** — when to stop and ask a human rather than invent;
+- **a human checkpoint** — this is where a decision gets made, and recorded.
 
-## Guardrails
+Two rules hold the whole thing together:
 
-- Source-of-truth hierarchy: validated product decisions and ADRs take precedence over tickets and existing code.
-- No-invention rule: unresolved product, permission, or architecture decisions remain visible and are escalated.
-- Narrow skill boundaries: a skill does not silently take over a neighboring skill's responsibility.
-- Human gates before product acceptance and release.
-- Validation focuses on handoff quality, not only on the local quality of a generated artifact.
+1. **No validated specification, no generated code.** The `.feature` file comes first.
+2. **No invention.** When a source is missing, the pipeline says so. It does not fill the gap.
 
-## Evidence and limitations
+---
 
-Each skill exposes its instructions under [`skills/`](skills/) and its current validation status under [`validations/skills/`](validations/skills/). Representative handoff evidence is available in [`validations/handoffs/`](validations/handoffs/). A sanitized Symfony/Twig dry-run is available in [`docs/case-studies/`](docs/case-studies/).
+## Evidence
 
-The documented validations are controlled evidence, not production proof. Most skills still require replay on real, sanitized project cases before they can be classified as pilot-validated. The two implementation-oriented skills remain experimental and must not be presented as autonomous delivery agents.
+- **27 controlled scenarios**, including one that explicitly forbids the model from giving the
+  exercise answer to a learner.
+- **12 skills documented**: 10 supervised, 2 experimental. The maturity table is published, not
+  hidden.
+- **A source-of-truth hierarchy** and a written no-invention rule, both enforced at the handoff.
+- **A skill-creation framework**: how to add a skill without breaking the existing ones.
 
-## How to review
+> This is a **public portfolio** of a methodology under consolidation. It is not a claim of
+> autonomous agents deployed in production.
 
-1. Read the [full catalog](SKILLS-CATALOG.md).
-2. Start with [`skills/sdd-spec-writer/SKILL.md`](skills/sdd-spec-writer/SKILL.md) and its [validation evidence](validations/skills/sdd-spec-writer/).
-3. Review the [skill-creation framework](governance/skill-creation-framework.md).
-4. Inspect the [Symfony/Twig controlled dry-run](docs/case-studies/symfony-twig-controlled-dry-run.md).
-5. Follow a representative artifact handoff in [`validations/handoffs/`](validations/handoffs/).
+---
 
-## Scope and exclusions
+## What a run looks like
 
-This public repository deliberately excludes client materials, application repositories, local workspaces, environment files, archives, and runtime credentials. It is a portfolio artifact for technical evaluation of the skill system itself.
+The failing test in step 3 is not a formality. It is the contract that prevents a
+plausible-but-wrong implementation from passing as done.
 
-Please read [SECURITY.md](SECURITY.md) before reporting a concern.
+---
 
-## Ownership
+## Stack
 
-Copyright 2026 Helmi Mattoussi. Published for portfolio review and technical evaluation under the terms in [LICENSE](LICENSE).
+| Layer | Tooling |
+| --- | --- |
+| Application | Symfony 7, API Platform |
+| Specification | Gherkin / Behat, `FriendsOfBehat/SymfonyExtension` |
+| Static analysis | PHPStan, Deptrac |
+| CI | GitHub Actions |
+| Front-end | Cypress + Cucumber (documented, not yet replayed on every project) |
+
+---
+
+## Repository layout
+
+---
+
+## Reading path
+
+If you have two minutes: `SKILLS-CATALOG.md`.
+If you have ten: the catalog, then one skill and its validation, then the governance framework.
+If you are evaluating: `docs/case-studies/` — the dry-runs are published with their limitations.
+
+---
+
+## Status and limits
+
+- Consolidation in progress. Two skills are experimental and marked as such.
+- A dry-run against a local Symfony/Twig pilot is underway; several skills still need replaying on
+  sanitised real projects before being called pilot-validated.
+- No client code, no credentials, and no application repository lives here.
+
+---
+
+## Licence
+
+MIT — see `LICENSE`.
+
+---
+
+*Method and implementation by [Helmi Mattoussi](https://www.linkedin.com/in/helmi-mattoussi-a07a8445/) —
+Tech Lead & Software Architect.*
